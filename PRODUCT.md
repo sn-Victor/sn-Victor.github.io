@@ -33,7 +33,7 @@ The work is real and in production at a real business (Settlemyre Nursery, a fam
 - Static site on GitHub Pages; no server, no forms backend.
 - Contact by email (curranvs@appstate.edu), LinkedIn, GitHub. **No phone number** on the public page (user decision).
 - Education: B.S. Computer Science + Data Science Certificate, Appalachian State University, graduating **Dec 2027** (user confirmed); earlier coursework at Southern New Hampshire University (Jan 2022 – Dec 2024).
-- Older content stays as a secondary section: Digital Labs 365 (co-founder), Jade-Trade, PrimescapeNC.
+- Projects shown: the three case studies plus Victor's Roblox game Pressure Crew (in closed testing, no public link yet; private repo). Older side projects (Jade-Trade, PrimescapeNC, the local AI phone agent) were removed at the user's request (2026-11-13). Digital Labs 365 stays under Experience.
 
 ## Brand Commitments
 

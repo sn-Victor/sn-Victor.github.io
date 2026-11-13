@@ -114,24 +114,25 @@ export const experience = [
 	},
 ];
 
-export const otherProjects = [
+export const games = [
 	{
-		name: 'Local AI phone agent',
-		note: 'In progress',
-		line: 'Answers phone calls with an open-source LLM running on two local GPUs, tuned for low latency.',
-		stack: ['Twilio', 'vLLM', 'SGLang', 'Qwen3'],
-	},
-	{
-		name: 'Jade-Trade',
-		note: '',
-		line: 'A trading platform with an automated signal bot, multi-exchange support and TradingView Pine Script integration.',
-		stack: ['React', 'TypeScript', 'Python', 'AWS Lambda', 'Supabase', 'Terraform'],
-	},
-	{
-		name: 'PrimescapeNC',
-		note: '',
-		line: 'A landscaping company’s website with SEO-focused service pages, project galleries and booking.',
-		stack: ['React', 'JavaScript', 'PHP'],
+		id: 'pressure-crew',
+		name: 'Pressure Crew',
+		kind: 'Roblox · co-op power washing',
+		status: 'In closed testing',
+		line: 'Crews of 1 to 4 take jobs, clean properties to 100%, and spend what they earn on gear, a crew van, and cosmetics.',
+		image: '/media/pressure-crew.jpg',
+		imageAlt: 'Pressure Crew screens: spraying a dirty car clean with a pressure washer, and the hub with job gates and a gear shop',
+		facts: [
+			{ value: '1–4', label: 'players per crew' },
+			{ value: '122', label: 'automated tests passing' },
+		],
+		decisions: [
+			'Written in Luau with Rojo, so the whole game lives in git and is linted and tested outside Roblox Studio.',
+			'Crews queue together on Solo, Duo, Trio and Squad pads, and everyone on a job shares one clean percentage.',
+			'Weekly updates built in: a featured job, a Weekly Mega Job, and a Crew Season pass.',
+		],
+		stack: ['Luau', 'Rojo', 'Wally', 'Lune', 'Roblox Open Cloud'],
 	},
 ];
 

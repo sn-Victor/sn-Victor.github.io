@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { person, caseStudies, experience, otherProjects, skills, education } from '../data/content';
+import { person, caseStudies, games, experience, skills, education } from '../data/content';
 ---
 
 <Base
@@ -13,6 +13,7 @@ import { person, caseStudies, experience, otherProjects, skills, education } fro
 		<a class="mark" href="/" aria-label="Victor Curran, home">Victor Curran</a>
 		<nav aria-label="Sections">
 			<a href="#work">Work</a>
+			<a href="#games">Games</a>
 			<a href="#experience">Experience</a>
 			<a class="btn" href={`mailto:${person.email}`}>Email me</a>
 		</nav>
@@ -110,6 +111,46 @@ import { person, caseStudies, experience, otherProjects, skills, education } fro
 			))}
 		</section>
 
+		<section id="games" class="work games" aria-labelledby="games-title">
+			<div class="col section-head">
+				<h2 id="games-title">Roblox games</h2>
+				<p>What I’m building on Roblox.</p>
+			</div>
+
+			{games.map((g) => (
+				<article class="case" id={g.id} aria-labelledby={`${g.id}-title`}>
+					<div class="col case-head">
+						<div class="case-title">
+							<div>
+								<h3 id={`${g.id}-title`}>{g.name}</h3>
+								<p class="kind">{g.kind} · <span class="testing">{g.status}</span></p>
+							</div>
+						</div>
+					</div>
+					<div class="frame-wrap">
+						<figure class="still">
+							<img src={g.image} alt={g.imageAlt} width="1600" height="900" loading="lazy" decoding="async" />
+						</figure>
+					</div>
+					<div class="col case-body">
+						<p class="case-line">{g.line}</p>
+						<dl class="facts">
+							{g.facts.map((f) => (
+								<div>
+									<dt class="mono">{f.value}</dt>
+									<dd>{f.label}</dd>
+								</div>
+							))}
+						</dl>
+						<ul class="decisions">
+							{g.decisions.map((d) => <li>{d}</li>)}
+						</ul>
+						<p class="stack"><span class="visually-hidden">Built with </span>{g.stack.join(' · ')}</p>
+					</div>
+				</article>
+			))}
+		</section>
+
 		<section class="col block" id="experience" aria-labelledby="exp-title">
 			<h2 id="exp-title">Experience</h2>
 			<ol class="rows">
@@ -120,22 +161,6 @@ import { person, caseStudies, experience, otherProjects, skills, education } fro
 							<span class="mono when">{e.when}</span>
 						</div>
 						{e.points.map((p) => <p class="row-text">{p}</p>)}
-					</li>
-				))}
-			</ol>
-		</section>
-
-		<section class="col block" aria-labelledby="proj-title">
-			<h2 id="proj-title">Other projects</h2>
-			<ol class="rows">
-				{otherProjects.map((p) => (
-					<li>
-						<div class="row-head">
-							<h3>{p.name}</h3>
-							{p.note && <span class="mono when">{p.note}</span>}
-						</div>
-						<p class="row-text">{p.line}</p>
-						<p class="stack">{p.stack.join(' · ')}</p>
 					</li>
 				))}
 			</ol>
@@ -396,6 +421,20 @@ import { person, caseStudies, experience, otherProjects, skills, education } fro
 	}
 	.frame:active { transform: scale(0.99); }
 	.case-body { padding-top: 20px; }
+	.games { padding-top: 8px; }
+	.still {
+		margin: 0;
+		aspect-ratio: 16 / 9;
+		border-radius: 14px;
+		overflow: hidden;
+		background: var(--frame);
+		box-shadow: var(--shadow), inset 0 0 0 1px var(--line);
+	}
+	.still img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	@media (prefers-color-scheme: dark) {
+		.still img { filter: brightness(0.9); }
+	}
+	.testing { color: var(--muted); }
 	.case-title {
 		display: flex;
 		align-items: flex-end;
@@ -702,7 +741,7 @@ import { person, caseStudies, experience, otherProjects, skills, education } fro
 		.controls { left: 6px; right: 6px; bottom: 6px; }
 		.top nav a:not(.btn) { display: none; }
 		.case { padding-bottom: 56px; }
-		.frame { border-radius: 10px; }
+		.frame, .still { border-radius: 10px; }
 		.case-title { gap: 12px; margin-bottom: 12px; }
 		.case-title h3 { font-size: 1.05rem; }
 		.case-title .kind { font-size: 13px; }
