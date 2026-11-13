@@ -1,0 +1,112 @@
+:root {
+	--bg: #fbfbfa;
+	--fg: #111110;
+	--muted: #63635f;
+	--faint: #6c6c67;
+	--line: #e7e7e3;
+	--frame: #eeeeeb;
+	--accent: #2453c2;
+	--accent-soft: rgba(36, 83, 194, 0.14);
+	--live: #17703d;
+	--shadow: 0 1px 2px rgba(17, 17, 16, 0.06), 0 8px 24px -8px rgba(17, 17, 16, 0.12);
+
+	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+	--sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+	--mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+	--col: 640px;
+	--wide: 960px;
+	--gutter: 20px;
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0f0f0e;
+		--fg: #ededec;
+		--muted: #a3a39e;
+		--faint: #8a8a84;
+		--line: #252523;
+		--frame: #1a1a19;
+		--accent: #8eaaff;
+		--accent-soft: rgba(142, 170, 255, 0.18);
+		--live: #4cc07c;
+		--shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+		color-scheme: dark;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-rendering: optimizeLegibility;
+	scrollbar-color: var(--line) var(--bg);
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--fg);
+	font-family: var(--sans);
+	font-size: 15.5px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'ss01', 'cv11';
+}
+
+::selection {
+	background: var(--accent-soft);
+	color: var(--fg);
+}
+
+a {
+	color: inherit;
+	text-decoration-line: underline;
+	text-decoration-color: var(--line);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	transition: text-decoration-color 160ms ease, color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	a:hover {
+		text-decoration-color: currentColor;
+	}
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+
+.mono {
+	font-family: var(--mono);
+	font-size: 0.86em;
+	font-variant-numeric: tabular-nums;
+	letter-spacing: -0.01em;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+# impeccable: commit only the durable design records
+.impeccable/*
+!.impeccable/surfaces/
+!.impeccable/design.json
+!.impeccable/config.json
